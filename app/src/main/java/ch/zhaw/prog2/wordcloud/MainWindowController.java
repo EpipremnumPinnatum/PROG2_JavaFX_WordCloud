@@ -6,25 +6,28 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 
+import java.awt.event.ActionEvent;
+
 public class MainWindowController {
 
 
+    @FXML private Button hinzufuegenText;
+    @FXML private Label lableTitel;
+    @FXML private Button leerenTextEingabe;
+    @FXML private TextField textEingabe;
+    @FXML private TextArea textHistory;
 
-        @FXML
-        private Button hinzufuegenText;
+    public void initialize() {
+        lableTitel.textProperty().bind(textEingabe.textProperty());
+    }
 
-        @FXML
-        private Label lableTitel;
-
-        @FXML
-        private Button leerenTextEingabe;
-
-        @FXML
-        private TextField textEingabe;
-
-        @FXML
-        private TextArea textHistory;
-
-
+    @FXML
+    private void hinzufuegenText(ActionEvent event){
+        textHistory.appendText(textEingabe.getText()+System.lineSeparator());
+    }
+    @FXML
+    private void leerenTextEIngabe(ActionEvent event){
+        textEingabe.clear();
+    }
 
 }
