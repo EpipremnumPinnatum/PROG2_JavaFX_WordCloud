@@ -11,12 +11,13 @@ import java.io.IOException;
 public class MainWindow extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
-
+        openMainWindow(primaryStage);
     }
     private void openMainWindow(Stage stage) {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("MainWindow.fxml"));
+
 
         try{
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("MainWindow.fxml"));
             Pane rootNode = loader.load();
             Scene scene = new Scene(rootNode);
             stage.setScene(scene);
